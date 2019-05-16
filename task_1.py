@@ -4,6 +4,16 @@ from scipy import stats
 from PIL import Image
 import matplotlib.pyplot as plt
 from fitter import Fitter
+import plotly.plotly as py
+import seaborn as sns
+from fitter import Fitter
+from pylab import *
+import sys
+import threading
+from datetime import datetime
+
+
+
 
 
 DIRNAME = '/home/alex/Стільниця/mirflickr/'
@@ -14,8 +24,8 @@ for i in range(number_of_image):
     image_names.append('/home/alex/Стільниця/mirflickr/im'+str(i+1)+'.jpg')
 
 f = open('extract.txt', 'w')
-#image_names=['/home/alex/Стільниця/mirflickr/im2.jpg']
-#image_names = ['/home/alex/Стільниця/mirflickr/im1.jpg', '/home/alex/Стільниця/mirflickr/im2.jpg']
+image_names=['/home/alex/Стільниця/mirflickr/im2.jpg']
+image_names = ['/home/alex/Стільниця/mirflickr/im1.jpg', '/home/alex/Стільниця/mirflickr/im2.jpg']
 
 for image_name in image_names:
     for name, number in COLOR.items():
