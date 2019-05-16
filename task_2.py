@@ -81,3 +81,20 @@ print(MATRICA_MEAN_ARRAY)
 MATRICA_MEAN_ARRAY_COV = np.cov(np.vstack((MEAN_VECTOR_R, MEAN_VECTOR_G, MEAN_VECTOR_B)))
 print('Матрица ковариации Мат.Ожидания')
 print(MATRICA_MEAN_ARRAY_COV)
+
+
+print('Матрица Мат.Ожидания и дисперсии')
+print(MATRICA_VAR_ARRAY)
+
+MATRICA_MATRICA_VAR_COV = np.array(np.cov(np.vstack((MEAN_VECTOR_R, MEAN_VECTOR_G, MEAN_VECTOR_B, VAR_VECTOR_R, VAR_VECTOR_G, VAR_VECTOR_B))))
+print('Матрица ковариации Мат.Ожидания и дисперсии')
+print((MATRICA_MATRICA_VAR_COV))
+
+#################################
+
+print('Матрица Мат.Ожидания ,дисперсии и ексцесса')
+print(MATRICA_SKEW_ARRAY)
+
+MATRICA_SKEW_ARRAY_COV = np.array(np.cov(np.vstack((MEAN_VECTOR_R, MEAN_VECTOR_G, MEAN_VECTOR_B, VAR_VECTOR_R, VAR_VECTOR_G, VAR_VECTOR_B, SKEW_VECTOR_R, SKEW_VECTOR_G, SKEW_VECTOR_B))))
+print('Матрица ковариации Мат.Ожидания ,дисперсии и ексцесса')
+print(MATRICA_SKEW_ARRAY_COV)
