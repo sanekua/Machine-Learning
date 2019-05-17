@@ -176,3 +176,23 @@ image.save("ans.jpg", "JPEG")
 del draw
 
 
+def transition_matrix(transitions):
+    n = 1+ max(transitions) #number of states
+
+    M = [[0]*n for _ in range(n)]
+
+    for (i,j) in zip(transitions,transitions[1:]):
+        M[i][j] += 1
+
+    #now convert to probabilities:
+    for row in M:
+        s = sum(row)
+        if s > 0:
+            row[:] = [f/s for f in row]
+    return M
+
+stohastic_marix = np.array(transition_matrix(r))
+print('Стохастическая матрица')
+print(stohastic_marix)
+print('Результат суммирования стохастической матрицы')
+print((sum(stohastic_marix))/256)
