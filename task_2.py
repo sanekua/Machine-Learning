@@ -119,3 +119,44 @@ print(len(b))
 print(r)
 print(g)
 print(b)
+
+
+r_new = []
+def chunks(lst, count):
+    n = len(lst) // count
+    return list(x for x in zip_longest(*[iter(lst)] * n))
+
+r_new = chunks(r,375)
+print((np.array(r_new)))
+
+print(len(r_new))
+print(len(r_new[1]))
+U, s, V = np.linalg.svd(r_new, full_matrices=True)
+print('Матрица U')
+print (np.array(U))
+print('Список s')
+print (np.array(s))
+print('Матрица V')
+print (np.array(V))
+
+print(len(s))
+
+nulevaya_matriz = np.zeros((375, 500))
+nulevaya_matriz[0][0] = s[0]
+print (np.array(nulevaya_matriz))
+
+Obshaya_matrica1 = np.dot(U, nulevaya_matriz)
+Obshaya_matrica2 = np.dot(Obshaya_matrica1, V)
+print ('Матрица U*s*V, где s - нулевая матрица кроме первого елемента')
+print (len(Obshaya_matrica2[0]))
+print (len(Obshaya_matrica2))
+
+
+def listmerge1(lstlst):
+    all=[]
+    for lst in lstlst:
+        for el in lst:
+            all.append(el)
+    return all
+
+
