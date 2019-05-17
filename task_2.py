@@ -160,3 +160,19 @@ def listmerge1(lstlst):
     return all
 
 
+image = Image.open(DIRNAME+'im20171.jpg') #Открываем изображение.
+draw = ImageDraw.Draw(image) #Создаем инструмент для рисования.
+width = image.size[0] #Определяем ширину.
+height = image.size[1] #Определяем высоту.
+pix = image.load() #Выгружаем значения пикселей.
+
+for i in range(500):
+  for j in range(375):
+        a = int(Obshaya_matrica2[j][i])
+        b = pix[i, j][1]
+        c = pix[i, j][2]
+        draw.point((i, j), (a, b, c))
+image.save("ans.jpg", "JPEG")
+del draw
+
+
