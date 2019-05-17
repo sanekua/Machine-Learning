@@ -98,3 +98,24 @@ print(MATRICA_SKEW_ARRAY)
 MATRICA_SKEW_ARRAY_COV = np.array(np.cov(np.vstack((MEAN_VECTOR_R, MEAN_VECTOR_G, MEAN_VECTOR_B, VAR_VECTOR_R, VAR_VECTOR_G, VAR_VECTOR_B, SKEW_VECTOR_R, SKEW_VECTOR_G, SKEW_VECTOR_B))))
 print('Матрица ковариации Мат.Ожидания ,дисперсии и ексцесса')
 print(MATRICA_SKEW_ARRAY_COV)
+
+
+
+for name, num in COLOR.items():
+    data[name] = pd.DataFrame()
+
+for image_name in image_names[:1]:
+        image = np.array(Image.open(DIRNAME+image_name))
+        print(len(image))
+        print(len(image[0]))
+        r = image[:, :, 0].ravel()
+        g = image[:, :, 1].ravel()
+        b = image[:, :, 2].ravel()
+
+
+print(len(r))
+print(len(g))
+print(len(b))
+print(r)
+print(g)
+print(b)
