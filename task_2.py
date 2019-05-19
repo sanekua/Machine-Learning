@@ -1,6 +1,3 @@
-import os
-from collections import defaultdict
-
 import numpy as np
 import scipy as sp
 from scipy import misc, stats
@@ -11,14 +8,21 @@ import plotly.plotly as py
 import seaborn as sns
 from fitter import Fitter
 from pylab import *
-import sys
-import threading
-from datetime import datetime
 from itertools import zip_longest
 from PIL import Image, ImageDraw
 import random
 
 
+DIRNAME = '/Users/alex/Downloads/mirflickr/'
+COLOR = {'red': 0,
+         'green': 1,
+         'blue': 2}  # RGB
+
+
+with open('/Users/alex/Downloads/mirflickr') as f:
+    image_names = ['im'+ x.strip()+'.jpg' for x in f.readlines()]
+
+#Zadanie 1
 
 
 
@@ -53,21 +57,21 @@ for name, num in COLOR.items():
              'skewness': sp.stats.skew(a),
              'kurtosis': sp.stats.kurtosis(a)}
         data[name] = pd.concat([data[name], pd.DataFrame(pd.DataFrame(d, index=[0,]))], ignore_index=True)
-        MEAN_VECTOR_R.append(round(d['mean'],3))
-        MEAN_VECTOR_G.append(round(d['mean'],3))
-        MEAN_VECTOR_B.append(round(d['mean'],3))
+        MEAN_VECTOR_R.append(round(d['mean'], 3))
+        MEAN_VECTOR_G.append(round(d['mean'], 3))
+        MEAN_VECTOR_B.append(round(d['mean'], 3))
 
-        VAR_VECTOR_R.append(round(d['var'],3))
-        VAR_VECTOR_G.append(round(d['var'],3))
-        VAR_VECTOR_B.append(round(d['var'],3))
+        VAR_VECTOR_R.append(round(d['var'], 3))
+        VAR_VECTOR_G.append(round(d['var'], 3))
+        VAR_VECTOR_B.append(round(d['var'], 3))
 
-        SKEW_VECTOR_R.append(round(d['skewness'],3))
-        SKEW_VECTOR_G.append(round(d['skewness'],3))
-        SKEW_VECTOR_B.append(round(d['skewness'],3))
+        SKEW_VECTOR_R.append(round(d['skewness'], 3))
+        SKEW_VECTOR_G.append(round(d['skewness'], 3))
+        SKEW_VECTOR_B.append(round(d['skewness'], 3))
 
-        KURT_VECTOR_R.append(round(d['kurtosis'],3))
-        KURT_VECTOR_G.append(round(d['kurtosis'],3))
-        KURT_VECTOR_B.append(round(d['kurtosis'],3))
+        KURT_VECTOR_R.append(round(d['kurtosis'], 3))
+        KURT_VECTOR_G.append(round(d['kurtosis'], 3))
+        KURT_VECTOR_B.append(round(d['kurtosis'], 3))
 
 MATRICA_MEAN_ARRAY = np.array((MEAN_VECTOR_R, MEAN_VECTOR_G, MEAN_VECTOR_B))
 MATRICA_VAR_ARRAY = np.array((MEAN_VECTOR_R, MEAN_VECTOR_G, MEAN_VECTOR_B, VAR_VECTOR_R, VAR_VECTOR_G, VAR_VECTOR_B))
