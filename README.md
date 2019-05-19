@@ -14,6 +14,7 @@ for which have a minimum value of the approximation error.
 
 
 Task 2
+ Package : https://press.liacs.nl/mirflickr/
 
 1. To form a test sample of images from the source package;
 2. Calculate the following characteristics:
